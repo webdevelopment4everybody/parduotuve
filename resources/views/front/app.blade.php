@@ -40,7 +40,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto kek">
                         <a class = "nav-link shop-cart" href="">@include('front.cart-svg')
                             <div id="cart-count">
                             @include('front.mini-cart')

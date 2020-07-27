@@ -6,9 +6,7 @@ use App\Product;
 class CartService
 {
     public $request;
-    public function hell(){
-        return 'Hello from hell';
-    }
+   
    
     public  function getCart(){ 
 
