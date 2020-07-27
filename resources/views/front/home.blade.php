@@ -38,7 +38,7 @@
                         <div>{{$product->price}}</div>
                         <input type="text" name="count" value="0"><br><br>
                         @csrf
-                        <button type="submit">ADD TO CART</button>
+                        <button type="submit" class="btn-light">ADD TO CART</button>
                     </form>
                 </div>
             </div>
