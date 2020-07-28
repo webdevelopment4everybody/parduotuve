@@ -24,24 +24,26 @@
 <div class="container">
     <h2>Shop pet food</h2>
     @foreach ($products as $product)
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-            <div class="card-header">{{$product->title}}</div>
-                <div class="card-body">
+    {{-- <div class="">
+        <div class=""> --}}
+            <div class="single-products">
+                <div class="products">
                     @foreach ($product->getImages as $photo)
                     <img src="{{asset('images/products/'.$photo->image)}}" style="width:250px; height: auto;" alt="">
                     @endforeach
+                    <div class="product-title">{{$product->title}}</div>
                     <form action="{{route('front.add')}}" method="POST" class="add-form">
                         <input type="hidden" name="product_id" value="{{$product->id}}">
-                        <label>Kaina</label><input type="hidden" value="{{$product->price}}" name="product_price">
-                        <div>{{$product->price}}</div>
+                        <input type="hidden" value="{{$product->price}}" name="product_price">
+                        <div class="product-price">{{$product->price}}€  x</div>
                         <input type="text" name="count" value="0"><br><br>
+                        {{-- <div class="products-action"> --}}
+                        <button type="submit" class="btn-add-to-cart">ADD TO CART</button>
+                        {{-- </div> --}}
                         @csrf
-                        <button type="submit" class="btn-light">ADD TO CART</button>
                     </form>
-                </div>
-            </div>
+                {{-- </div>
+            </div> --}}
         </div>
     </div>
     @endforeach

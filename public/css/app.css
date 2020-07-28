@@ -10947,14 +10947,16 @@ a.text-dark:focus {
 }
 
 .add-form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
   margin-top: 22px;
 }
 
 .add-form [type=text] {
   width: 20px;
+  display: inline-block;
+}
+
+label {
   display: inline-block;
 }
 
@@ -10973,6 +10975,8 @@ a.text-dark:focus {
   background: #fff;
   top: 47px;
   right: 90px;
+  max-height: 350px;
+  overflow-y: scroll;
 }
 
 .mini-cart-list ul {
@@ -10985,6 +10989,25 @@ a.text-dark:focus {
   display: inline-block;
   margin-bottom: 20px;
   padding-bottom: 15px;
+}
+
+.product-price {
+  width: 65px;
+  display: inline-block;
+  color: #686868;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 12px 0 0;
+}
+
+.product-title {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.products {
+  display: inline-block;
 }
 
 .hero1 {
@@ -11142,5 +11165,11 @@ h2 {
   background-color: #7e4c4f;
   border: 2px solid #7e4c4f;
   color: #fff;
+}
+
+.single-products {
+  display: inline-block;
+  float: left;
+  margin: 10px;
 }
 
