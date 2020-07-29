@@ -4,74 +4,80 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-// use Session;
+use App\Order;
+use App\Cart;
 use App\Services\CartService;
+use App\Libs\WebToPay;
+use App\Libs\WebToPayException;
 
 class FrontController extends Controller
 {
     public function home(CartService $cart)
     {
-        
-        // print_r(Session::get('cart'));
-
-        // echo $cart->hell();
-
-        // $cart = Session::get('cart');
-        // $count = 0;
-        // $total = 0;
-        // $cartProducts = [];
-        // if(!empty($cart)){
-        // foreach ($cart as $key => $value) {
-        //     $count += $value['count'];
-        //     $total += $value['price'];
-        //     $cartProducts[$key] = Product::where('id', $value['id'])->first();
-        // }}
-        // print_r($cart->getCart());
-
         $products = Product::all();
         return view('front.home', array_merge(compact('products'),$cart->getCart()));//perduodam i bleidus
-        // return view('front.home',['products'=>$products]);
     }
 
-    public function add(CartService $cart)
-    {
-        // $count = (int) $request->count;
-        // $product = Product::where('id', $request->product_id)->first();
-        // $cart = Session::get('cart', []);
-
-        // if (isset($cart[$product->id])) {
-        //     $cart[$product->id] = 
-        //     [
-        //         'count' => $cart[$product->id]['count'] + $count,
-        //         'id' => $product->id,
-        //         'price'=> $cart[$product->id]['price'] + $product->price * $count
-        //     ];
-        // }
-        // else {
-        //     $cart[$product->id] = ['count' => $count, 'id' => $product->id, 'price' => $product->price * $count];
-        // }
-        // if($cart[$product->id]['count']>0){
-        //     Session::put('cart', $cart);
+    public function add(CartService $cart){
+        
         $cart->add();
             return redirect()->back();
 
-        // }else{
-        //     return redirect()->back();
-        // }
     }
 
-    public function remove(CartService $cart)
+    public function addJs(CartService $cart){
+        $cart->add();
+        $miniCartHtml = view('front.mini-cart', $cart->getCart())->render();
+        
+        return response()->json([
+            'html' => $miniCartHtml,
+            'cart' => 'OK',
+        ]);
+    }
+
+    public function buy(CartService $cart, Request $request)
     {
-        // $cart = Session::get('cart', []);
+        $buyCart = $cart->getCart();
+        $order = new Order;
+        $order->customer_name = $request->name;
+        $order->customer_email = $request->email;
+        $order->customer_phone = $request->phone;
+        $order->price = $buyCart['total'];
+        $order->status = 1;
+        $order->save();
+        foreach($buyCart['cartProducts'] as $product){
+            $orderCart = new Cart;
+            $orderCart->product_id = $product->id;
+            $orderCart->order_id = $order->id;
+            $orderCart->save();
+        }
+        try {
+            return redirect(WebToPay::redirectToPayment(array(
+                'projectid'     => 181631,
+                'sign_password' => '294c7c2361d650639e48f454d8d106d0',
+                'orderid'       => $order->id,
+                'amount'        => (int) $order->price * 100,
+                'currency'      => 'EUR',
+                'country'       => 'LT',
+                'accepturl'     => route('paysera.accept'),
+                'cancelurl'     => route('paysera.cancel'),
+                'callbackurl'   => route('paysera.callback'),
+                'test'          => 1,
+            )));
+        } catch (WebToPayException $e) {
+            // handle exception
+        } 
+         
+    }
 
-        // if (isset($cart[$request->product_id])) {
-        //     unset($cart[$request->product_id]);
-        // }
-
-        // Session::put('cart', $cart);
+    public function remove(CartService $cart){
+       
         $cart->remove();
 
         return redirect()->back();
 
     }
+
+   
 }
+

@@ -98,6 +98,8 @@ class ProductController extends Controller
      */
     public function destroy(product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success_message', 'Sekmingai ištrintas.');
     }
 }

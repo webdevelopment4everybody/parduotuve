@@ -34,3 +34,11 @@ Route::group(['prefix' => 'admin/products'], function(){
  Route::get('/', 'FrontController@home')->name('front.home');
  Route::post('add', 'FrontController@add')->name('front.add');
  Route::post('remove', 'FrontController@remove')->name('front.remove');
+
+ Route::post('add-js', 'FrontController@addJs')->name('front.add-js');
+ Route::post('buy', 'FrontController@buy')->name('buy');
+
+ Route::get('paysera/accept', 'FrontController@payseraAccept')->name('paysera.accept');
+ Route::get('paysera/cancel', 'FrontController@payseraCancel')->name('paysera.cancel');
+ 
+ Route::post('paysera/callback', 'FrontController@payseraCallback')->name('paysera.callback');

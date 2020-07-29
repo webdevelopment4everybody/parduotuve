@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { default: Axios } = require('axios');
+
 require('./bootstrap');
 
 
@@ -36,20 +38,8 @@ const productPhotoInput2= '<button id="delete-product-photo" type="button" class
 const productPhotoInputsArea = document.querySelector('#product-photo-inputs-area');
 const productPhotoInputsArea2 = document.querySelector('#product-photo-inputs-area');
 
-// if(addPhotoButton){
-//     addPhotoButton.addEventListener("click", ()=>{
-//         const input=document.createElement('span');
-//         input.innerHTML=productPhotoInput;
-//         productPhotoInputsArea.appendChild(input);
- 
-//         const input2=document.createElement('span');
-//         input2.innerHTML=productPhotoInput2;
-//         productPhotoInputsArea2.appendChild(input2);
-//     });
-//             // deletePhotoButton.addEventListener("click", ()=>{
-//             // });
-// }
 
+// 
 
 
 
@@ -76,31 +66,59 @@ if(addPhotoButton){
 
 
 
+document.querySelectorAll('#delete').forEach((button) => {
+  button.addEventListener("click", () => {
+const child = document.getElementById("product-photo-inputs-area2");
+const parent = document.getElementById("delete");
 
-// var div = document.getElementById('product-photo-inputs-area');
+// Delete child
+parent.parentNode.removeChild(child);
+});
+})
 
-// function addProduct() {
-//     var input=document.createElement('input');
-//     // input.innerHTML=productPhotoInput;
-//     input.placeholder = "More hobbies";
-//     button = document.createElement('button');
-  
-// //   input.placeholder = "More hobbies";
-//   button.innerHTML = 'X';
-//   // attach onlick event handler to remove button
-//   button.onclick = removeHobby;
-  
-//   div.appendChild(input);
-//   div.appendChild(button);
-// }
+document.querySelectorAll('.add-button').forEach((button) => {
+    button.addEventListener("click", () => {
+        const form = button.closest(".add-form");
+        const route = form.querySelector("[name=route]").value;
+        const id = form.querySelector("[name=product_id]").value;
+        const count = form.querySelector("[name=count]").value;
+        form.querySelector("[name=count]").value = 0;
 
-// function removeHobby() {
-//   // remove this button and its input
-//   div.removeChild(this.previousElementSibling);
-//   div.removeChild(this);
-// }
+        axios.post('add-js', {
+                product_id: id,
+                count: count
+        })
+            .then(function(response) {
+                const cart = document.querySelector('#cart-count');
+                cart.innerHTML = response.data.html;
 
-// // attach onclick event handler to add button
-// document.getElementById('add').addEventListener('click', addProduct);
-// // attach onclick event handler to 1st remove button
-// document.getElementById('delete-product-photo').addEventListener('click', removeHobby);
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+
+
+    });
+})
+// quantity +/-
+const quantities = document.querySelectorAll('.quantity');
+
+[...quantities].forEach(function(quantity) {
+  const minusButton = quantity.querySelector('.minus-btn');
+  const plusButton = quantity.querySelector('.plus-btn');
+  const inputField = quantity.querySelector('.input-btn');
+
+  minusButton.addEventListener('click', function minusProduct() {
+    const currentValue = Number(inputField.value);
+    if (currentValue > 0) {
+      inputField.value = currentValue - 1;
+    } else inputField.value = 0
+  });
+
+  plusButton.addEventListener('click', function plusProduct() {
+    const currentValue = Number(inputField.value);
+    inputField.value = currentValue + 1;
+  });
+
+});

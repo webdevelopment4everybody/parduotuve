@@ -37274,11 +37274,26 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    Axios = _require["default"];
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /**
  * The following block of code may be used to automatically register your
@@ -37302,18 +37317,7 @@ var addPhotoButton = document.querySelector('#add-product-photo');
 var deletePhotoButton = document.querySelector('#delete-product-photo');
 var productPhotoInput2 = '<button id="delete-product-photo" type="button" class="btn btn-warning">delete photo</button>';
 var productPhotoInputsArea = document.querySelector('#product-photo-inputs-area');
-var productPhotoInputsArea2 = document.querySelector('#product-photo-inputs-area'); // if(addPhotoButton){
-//     addPhotoButton.addEventListener("click", ()=>{
-//         const input=document.createElement('span');
-//         input.innerHTML=productPhotoInput;
-//         productPhotoInputsArea.appendChild(input);
-//         const input2=document.createElement('span');
-//         input2.innerHTML=productPhotoInput2;
-//         productPhotoInputsArea2.appendChild(input2);
-//     });
-//             // deletePhotoButton.addEventListener("click", ()=>{
-//             // });
-// }
+var productPhotoInputsArea2 = document.querySelector('#product-photo-inputs-area'); // 
 
 if (addPhotoButton) {
   var addProduct = function addProduct() {
@@ -37334,28 +37338,54 @@ if (addPhotoButton) {
 
   document.getElementById('add-product-photo').addEventListener('click', addProduct);
   document.getElementById('delete-product-photo').addEventListener('click', removeHobby);
-} // var div = document.getElementById('product-photo-inputs-area');
-// function addProduct() {
-//     var input=document.createElement('input');
-//     // input.innerHTML=productPhotoInput;
-//     input.placeholder = "More hobbies";
-//     button = document.createElement('button');
-// //   input.placeholder = "More hobbies";
-//   button.innerHTML = 'X';
-//   // attach onlick event handler to remove button
-//   button.onclick = removeHobby;
-//   div.appendChild(input);
-//   div.appendChild(button);
-// }
-// function removeHobby() {
-//   // remove this button and its input
-//   div.removeChild(this.previousElementSibling);
-//   div.removeChild(this);
-// }
-// // attach onclick event handler to add button
-// document.getElementById('add').addEventListener('click', addProduct);
-// // attach onclick event handler to 1st remove button
-// document.getElementById('delete-product-photo').addEventListener('click', removeHobby);
+}
+
+document.querySelectorAll('#delete').forEach(function (button) {
+  button.addEventListener("click", function () {
+    var child = document.getElementById("product-photo-inputs-area2");
+    var parent = document.getElementById("delete"); // Delete child
+
+    parent.parentNode.removeChild(child);
+  });
+});
+document.querySelectorAll('.add-button').forEach(function (button) {
+  button.addEventListener("click", function () {
+    var form = button.closest(".add-form");
+    var route = form.querySelector("[name=route]").value;
+    var id = form.querySelector("[name=product_id]").value;
+    var count = form.querySelector("[name=count]").value;
+    form.querySelector("[name=count]").value = 0;
+    axios.post('add-js', {
+      product_id: id,
+      count: count
+    }).then(function (response) {
+      var cart = document.querySelector('#cart-count');
+      cart.innerHTML = response.data.html;
+      console.log(response);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  });
+}); // quantity +/-
+
+var quantities = document.querySelectorAll('.quantity');
+
+_toConsumableArray(quantities).forEach(function (quantity) {
+  var minusButton = quantity.querySelector('.minus-btn');
+  var plusButton = quantity.querySelector('.plus-btn');
+  var inputField = quantity.querySelector('.input-btn');
+  minusButton.addEventListener('click', function minusProduct() {
+    var currentValue = Number(inputField.value);
+
+    if (currentValue > 0) {
+      inputField.value = currentValue - 1;
+    } else inputField.value = 0;
+  });
+  plusButton.addEventListener('click', function plusProduct() {
+    var currentValue = Number(inputField.value);
+    inputField.value = currentValue + 1;
+  });
+});
 
 /***/ }),
 

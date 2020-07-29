@@ -22,31 +22,46 @@
 
  {{-- @section('content')  --}}
 <div class="container">
-    <h2>Shop pet food</h2>
+    <h2 class="container-h2">Shop pet food</h2>
     @foreach ($products as $product)
-    {{-- <div class="">
-        <div class=""> --}}
-            <div class="single-products">
-                <div class="products">
-                    @foreach ($product->getImages as $photo)
-                    <img src="{{asset('images/products/'.$photo->image)}}" style="width:250px; height: auto;" alt="">
-                    @endforeach
-                    <div class="product-title">{{$product->title}}</div>
-                    <form action="{{route('front.add')}}" method="POST" class="add-form">
-                        <input type="hidden" name="product_id" value="{{$product->id}}">
-                        <input type="hidden" value="{{$product->price}}" name="product_price">
-                        <div class="product-price">{{$product->price}}€  x</div>
-                        <input type="text" name="count" value="0"><br><br>
-                        {{-- <div class="products-action"> --}}
-                        <button type="submit" class="btn-add-to-cart">ADD TO CART</button>
-                        {{-- </div> --}}
-                        @csrf
-                    </form>
-                {{-- </div>
-            </div> --}}
+        <div class="single-products">
+            <div class="products">
+                @foreach ($product->getImages as $photo)
+                <img src="{{asset('images/products/'.$photo->image)}}" style="width:250px; height: auto;" alt="">
+                @endforeach
+                <div class="product-title">{{$product->title}}</div>
+                <div class="add-form">
+                    <input type="hidden" name="route" value="{{route('front.add-js')}}">
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    <input type="hidden" value="{{$product->price}}" name="product_price">
+
+                    <div class="product-price">{{$product->price}}€</div>
+                    <div class="product-action">
+                        <a title="Quick-View" href="#" data-toggle="modal" data-target="#exampleModal">
+                            <div class="plus-icon">@include('front.plus-svg') </div>
+                        </a>
+                        <a title="Add to cart" href="#">
+                            <div class="plus-icon">@include('front.cart-svg') </div> 
+                        </a>
+                    </div>
+
+                    <div class="quantity">
+                        <button class="minus-btn" type="button" name="button">-</button>
+                        <input class="input-btn" type="number" name="count" id="1" value="0"  readonly/>
+                        <button class="plus-btn" type="button" name="button">+</button>
+                        <button class="add-button " type="button" >ADD</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
-</div>
+    <form action="{{route('buy')}}" method="POST">
+        @csrf
+        Name:<input type="text" name="name" value=""><br><br>
+        Email:<input  type="text" name="email" value="" ><br><br>
+        Phone:<input  type="text" name="phone" value="" ><br><br>
+        <button class="add-button " type="submit">BUY</button>
+    </form>
 @endsection
 

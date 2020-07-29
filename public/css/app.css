@@ -10928,6 +10928,15 @@ a.text-dark:focus {
   }
 }
 
+.container-h2 {
+  color: #000101;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 35px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
 .shop-cart {
   display: inline-block;
 }
@@ -11008,6 +11017,7 @@ label {
 
 .products {
   display: inline-block;
+  position: relative;
 }
 
 .hero1 {
@@ -11063,7 +11073,7 @@ h2 {
 }
 
 .shopping-cart-title {
-  font-size: 15px;
+  font-size: 12px;
   line-height: 18px;
   margin: 0;
 }
@@ -11171,5 +11181,95 @@ h2 {
   display: inline-block;
   float: left;
   margin: 10px;
+}
+
+.product-action {
+  background-color: #fff;
+  box-shadow: 0 0.3px 7px rgba(0, 0, 0, 0.2);
+  display: none;
+  justify-content: center;
+  padding: 13px 0 11px;
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  transform: translateY(-50%) translateX(-50%);
+  transition: all 0.6s ease 0s;
+}
+
+.product-action button {
+  color: #666666;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 18px;
+  position: relative;
+}
+
+.input-btn {
+  width: 40px;
+  color: #000000;
+  -webkit-opacity: 1;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #000000;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.plus-icon {
+  width: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.quantity {
+  margin-top: 10px;
+  width: auto;
+  display: flex;
+}
+
+.quantity .plus-btn,
+.quantity .minus-btn {
+  padding: 0;
+  transition: 0.2s all;
+  background: #ffffff;
+  color: #999;
+  font-size: 20px;
+  font-weight: 400;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #eeeeee;
+}
+
+.minus-btn {
+  border-right: 0;
+}
+
+.add-button {
+  background-color: transparent;
+  border: 2px solid #eeeeee;
+  color: #000101;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.add-button:hover {
+  background-color: #7e4c4f;
+  border: 2px solid #7e4c4f;
+  color: #fff;
+}
+
+.product-action a {
+  border-right: 1px solid black;
+}
+
+.single-products:hover + .product-action {
+  display: block;
+}
+
+.product-action a:last-child {
+  border: none;
 }
 
