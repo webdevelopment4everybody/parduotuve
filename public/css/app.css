@@ -11214,17 +11214,20 @@ h2 {
 
 .product-action {
   position: absolute;
-  top: 40px;
-  right: 100px;
+  top: 50px;
+  right: 80px;
+  display: inline-block;
+  margin: 50px;
 }
 
-.product-action button {
-  color: #666666;
-  display: inline-block;
-  font-size: 20px;
-  line-height: 1;
-  margin: 0 18px;
-  position: relative;
+.product-action a {
+  border-right: 1px solid black;
+  display: none;
+  padding: 10px;
+}
+
+.product-action a:nth-child(2) {
+  border: none;
 }
 
 .input-btn {
@@ -11241,6 +11244,13 @@ h2 {
 }
 
 .plus-icon {
+  width: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.plus-icon2 {
   width: 30px;
   margin-right: 10px;
   margin-left: 10px;
@@ -11278,30 +11288,14 @@ h2 {
   margin-left: 20px;
 }
 
-.add-button:hover {
-  background-color: #7e4c4f;
-  border: 2px solid #7e4c4f;
-  color: #fff;
-}
-
-.product-action a {
-  border-right: 1px solid black;
-}
-
-.single-products:hover .product-action > a {
-  background-color: #fff;
+.single-products:hover .product-action a {
   display: inline-block;
-  position: absolute;
-  top: 130px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
+  background-color: white;
 }
 
-.single-products:hover .product-action > a:hover {
+.single-products:hover .product-action a:nth-child(2) {
+  display: inline-block;
   transition: all 0.4s ease-in-out;
-  display: inline-block;
   position: absolute;
 }
 

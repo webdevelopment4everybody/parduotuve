@@ -61,7 +61,7 @@
                                 <div class="plus-icon">@include('front.plus-svg') </div>
                             </a>
                             <a  href="#">
-                                <div class="plus-icon">@include('front.cart-svg') </div> 
+                                <div class="plus-icon2">@include('front.cart-svg') </div> 
                             </a>
                         </div>
 
@@ -79,8 +79,8 @@
         <form class="buy-form" action="{{route('buy')}}" method="POST">
             @csrf
             Name:<input type="text" name="name" value=""><br><br>
-            Email:<input  type="text" name="email" value="" ><br><br>
-            Phone:<input  type="text" name="phone" value="" ><br><br>
+            Email:<input type="text" name="email" value="" ><br><br>
+            Phone:<input type="text" name="phone" value="" ><br><br>
             <button class="add-button " type="submit">BUY</button>
         </form>
 </section>

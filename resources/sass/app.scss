@@ -264,53 +264,30 @@ h2{
     }
 
 }
-
+// SHOP FOOD
 .single-products{
     display:inline-block;
     float:left;
     margin:10px;
 }
-// .btn-add-to-cart{
-//     background-color: #7e4c4f;
-//     border-radius: 50px;
-//     color: #fff;
-//     display: inline-block;
-//     font-family: "Montserrat", sans-serif;
-//     font-size: 14px;
-//     font-weight: bold;
-//     line-height: 1;
-//     padding: 18px 30px 17px;
-//     text-align: center;
-//     text-transform: uppercase;
-//     transition: all 0.3s ease 0s;
-// }
+
 .product-action {
     position: absolute;
-    top: 40px;
-    right: 100px;
-}
-// .product-action{
-//     background-color: #fff;
-//     box-shadow: 0 0.3px 7px rgba(0, 0, 0, 0.2);
-//     display: none;
-//     justify-content: center;
-//     padding: 13px 0 11px;
-//     position: absolute;
-//     top:130px;
-//     right: 30px;
-//     // opacity: 0;
-//     // visibility: hidden;
-//     transform: translateY(-50%) translateX(-50%);
-//     transition: all 0.6s ease 0s;
-// }
-.product-action button{
-    color: #666666;
+    top: 50px;
+    right: 80px;
     display: inline-block;
-    font-size: 20px;
-    line-height: 1;
-    margin: 0 18px;
-    position: relative;
+    margin: 50px;
 }
+
+.product-action a{
+    border-right:1px solid black;
+    display:none;
+    padding: 10px;
+}
+.product-action a:nth-child(2){
+    border:none;
+}
+
 .input-btn{
     width:40px;
     color: #000000;
@@ -325,6 +302,12 @@ h2{
 }
 
 .plus-icon{
+    width:30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.plus-icon2{
     width:30px;
     margin-right: 10px;
     margin-left: 10px;
@@ -356,63 +339,22 @@ h2{
     display: inline-block;
     margin-left:20px;
 }
-.add-button:hover{
-    background-color: #7e4c4f;
-    border: 2px solid #7e4c4f;
-    color: #fff;
-}
-.product-action a{
-    border-right:1px solid black;
-}
-
-
-
 
 .single-products:hover{
-    .product-action > a{
-        // background-color: #fff;
-        //     box-shadow: 0 0.3px 7px rgba(0, 0, 0, 0.2);
-        //     display: inline-block;
-        //     justify-content: center;
-        //     padding: 13px 0 11px;
-        //     position: absolute;
-        //     top:130px;
-        //     right: 30px;
-        //     // opacity: 0;
-        //     // visibility: hidden;
-        //     transform: translateY(-50%) translateX(-50%);
-        //     transition: all 0.6s ease 0s;
+    .product-action  a{
+        display:inline-block;
+        background-color: white;
     }
-    .product-action > a{
-        // transition: all .4s ease-in-out;
-           background-color: #fff;
-           display: inline-block;
-           position: absolute;
-           top:130px;
-            right: 30px;
-           width: 50px;
-           height: 50px;
-           padding: 10px;
-        }
-        .product-action > a:hover{
-            // background-color: #38c172;;
-                transition: all .4s ease-in-out;
-                display: inline-block;
-                position: absolute;
-        }
-        // .product-action> a:nth-child(2):hover{
-        //     display: inline-block;
-        //     transition: all .4s ease-in-out;
-        //     // background-color: #38c172;;
-        //     position: absolute;
-        // }
+    .product-action a:nth-child(2){
+        display: inline-block;
+        transition: all .4s ease-in-out;
+        position: absolute;
+    }
 }
 .buy-form{
     display:inline-block;
     width:100%;
 }
-
-
 
 // ABOUT US
 .about-marten-section{
