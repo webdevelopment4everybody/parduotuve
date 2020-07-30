@@ -19,7 +19,7 @@ class CreateImagesTable extends Migration
             // $table->integer('eiliskumas');
             $table->string('image',200);
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

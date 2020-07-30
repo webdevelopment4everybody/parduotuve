@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin/products'], function(){
  Route::post('add-js', 'FrontController@addJs')->name('front.add-js');
  Route::post('buy', 'FrontController@buy')->name('buy');
 
+ Route::get('all-good', 'FrontController@allGood')->name('all.good');
  Route::get('paysera/accept', 'FrontController@payseraAccept')->name('paysera.accept');
  Route::get('paysera/cancel', 'FrontController@payseraCancel')->name('paysera.cancel');
  

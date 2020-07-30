@@ -32,9 +32,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a class="navbar-brand" href="#">Home</a>
-                        <a class="navbar-brand" href="#">About</a>
-                        <a class="navbar-brand" href="#">Food</a>
+                        <a class="navbar-brand" href="#home">Home</a>
+                        <a class="navbar-brand" href="#about">About</a>
+                        <a class="navbar-brand" href="#shop">Shop Food</a>
                         <a class="navbar-brand" href="#">Blog</a>
                         <a class="navbar-brand" href="#">Contact us</a>
                     </ul>

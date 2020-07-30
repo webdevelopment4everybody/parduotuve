@@ -6,7 +6,10 @@ use App\Product;
 class CartService
 {
     public $request;
-   
+    public  function empty(){ 
+        Session::forget('cart');
+
+    }
    
     public  function getCart(){ 
 

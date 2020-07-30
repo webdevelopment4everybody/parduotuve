@@ -14,10 +14,9 @@
 @endforeach
 </ul>
 <div class="shopping-cart-total">Total:   {{$total}}€</div>
+
 <div class="shopping-cart-buttons">
     <button class="checkout">checkout</button>
     <button class="your-cart">your-cart</button>
-{{-- <a href ="#" class="checkout"></a> --}}
-{{-- <a href="#" class="your-cart">your cart</a> --}}
 </div>
 </div>

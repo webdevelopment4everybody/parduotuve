@@ -7,8 +7,7 @@ use App\Product;
 use App\Order;
 use App\Cart;
 use App\Services\CartService;
-use App\Libs\WebToPay;
-use App\Libs\WebToPayException;
+use App\Services\PayseraService;
 
 class FrontController extends Controller
 {
@@ -21,7 +20,7 @@ class FrontController extends Controller
     public function add(CartService $cart){
         
         $cart->add();
-            return redirect()->back();
+        return redirect()->back();
 
     }
 
@@ -35,49 +34,30 @@ class FrontController extends Controller
         ]);
     }
 
-    public function buy(CartService $cart, Request $request)
+    public function buy(CartService $cart, Request $request, PayseraService $paysera)
     {
         $buyCart = $cart->getCart();
         $order = new Order;
-        $order->customer_name = $request->name;
-        $order->customer_email = $request->email;
-        $order->customer_phone = $request->phone;
-        $order->price = $buyCart['total'];
-        $order->status = 1;
-        $order->save();
-        foreach($buyCart['cartProducts'] as $product){
-            $orderCart = new Cart;
-            $orderCart->product_id = $product->id;
-            $orderCart->order_id = $order->id;
-            $orderCart->save();
-        }
-        try {
-            return redirect(WebToPay::redirectToPayment(array(
-                'projectid'     => 181631,
-                'sign_password' => '294c7c2361d650639e48f454d8d106d0',
-                'orderid'       => $order->id,
-                'amount'        => (int) $order->price * 100,
-                'currency'      => 'EUR',
-                'country'       => 'LT',
-                'accepturl'     => route('paysera.accept'),
-                'cancelurl'     => route('paysera.cancel'),
-                'callbackurl'   => route('paysera.callback'),
-                'test'          => 1,
-            )));
-        } catch (WebToPayException $e) {
-            // handle exception
-        } 
-         
+        $order= Order::makeOrder($request, $buyCart['total']);
+        $cart->empty();
+
+        Cart::makeCart($buyCart['cartProducts'],$order);
+        return $paysera->buy($order);
+    
+    }
+
+    public function payseraAccept(PayseraService $paysera){
+        $paysera->allGood();
+        return redirect()->route('all.good');
+    }
+    public function allGood(CartService $cart){
+        return view('front.all-good',$cart->getCart());
     }
 
     public function remove(CartService $cart){
        
         $cart->remove();
-
         return redirect()->back();
-
-    }
-
-   
+    } 
 }
 
