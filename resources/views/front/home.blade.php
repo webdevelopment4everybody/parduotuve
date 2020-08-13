@@ -2,25 +2,46 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<div class=" hero1" style=" background-image: url('../assets/images/slider/background.jpg');" >
-    <div class="container">
-        <h3>We keep pets for pleasure.</h3>
-        <h1>Standart foods &amp; vitamins 
-            <br>
-            for all pets
-        </h1>
-        <div class="slider-button">
-            <a href="#">Shop now</a>
+<div class=" hero1">
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" style="">
+                <div class="container hero-slider">
+                    <h3>We keep pets for pleasure.</h3>
+                    <h1>Standart foods &amp; vitamins 
+                        <br>
+                        for all pets
+                    </h1>
+                    <div class="slider-button">
+                        <a href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('../assets/images/slider/backgroun2.jpg');">
+                <div class="container hero-slider">
+                    <h3>We keep pets for pleasure.</h3>
+                    <h1>Standart foods &amp; vitamins 
+                        <br>
+                        for all pets
+                    </h1>
+                    <div class="slider-button">
+                        <a href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
     
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card-body">
-
-            </div> 
-         </div> 
-    </div> 
-</div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev" style="color:white;"></div>
+        <div class="swiper-button-next" style="color:white;"></div>
+    
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
  </div> 
 {{-- About us section --}}
 <section id="about" class="about-marten-section">

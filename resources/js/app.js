@@ -122,3 +122,47 @@ const quantities = document.querySelectorAll('.quantity');
   });
 
 });
+
+
+//SWIPER
+
+// import Swiper styles
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/swiper-bundle.css';
+Swiper.use([Navigation, Pagination]);
+
+// configure Swiper to use modules
+Swiper.use([Navigation, Pagination]);
+var mySwiper = new Swiper('.swiper-container', {
+  // Optional parameters
+      effect: 'fade',
+  
+  // direction: 'horizontal',
+  loop: true,
+  speed:1500,
+  grabCursor: true,
+  watchSlidesProgress: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+  
+})
+
+
+
+

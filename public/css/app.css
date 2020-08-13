@@ -10980,6 +10980,7 @@ label {
 .mini-cart-list {
   display: none;
   position: absolute;
+  z-index: 100;
   width: 250px;
   background: #fff;
   top: 47px;
@@ -11026,6 +11027,7 @@ label {
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: -1.5rem !important;
+  position: relative;
 }
 
 h3,
@@ -11371,5 +11373,25 @@ h2 {
   color: #7e4c4f;
   text-decoration: none;
   border: 1px solid #7e4c4f;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-slider {
+  position: absolute;
+}
+
+.swiper-slide {
+  background-image: url(/images/background.jpg?bedb0d35017c4d0ca517e7b8ba26f508);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
 }
 
