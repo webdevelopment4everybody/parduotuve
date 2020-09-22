@@ -43,3 +43,5 @@ Route::group(['prefix' => 'admin/products'], function(){
  Route::get('paysera/cancel', 'FrontController@payseraCancel')->name('paysera.cancel');
  
  Route::post('paysera/callback', 'FrontController@payseraCallback')->name('paysera.callback');
+
+ Route::get('login_register', 'FrontController@login_register')->name('front.login_register'); 

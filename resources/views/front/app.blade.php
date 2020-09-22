@@ -46,6 +46,8 @@
                             @include('front.mini-cart')
                             </div>
                         </a>
+                        <a class = "nav-link user" href="login_register">@include('front.user-svg')
+                        </a>
                     </ul>
                 </div>
             </div>

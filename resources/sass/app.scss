@@ -21,6 +21,7 @@ section{
 
 .shop-cart{
     display: inline-block;
+    width:30%;
     
     svg{
         width: 35px;
@@ -29,6 +30,10 @@ section{
         
     }
    
+}
+.user svg{
+    width: 34px;
+    height:34px;
 }
 .total{
     display:none;
@@ -63,7 +68,7 @@ position: relative;
     width: 250px;
     background: #fff;
     top: 47px;
-    right:90px;
+    right:25px;
     max-height:350px;
     overflow-y: scroll;
     ul{
@@ -139,7 +144,7 @@ h2{
     line-height: 23px;
     position: absolute;
     top: 10px;
-    right: 97px;
+    left: 30px;
     width: 22px;
     text-align:center;
 }
