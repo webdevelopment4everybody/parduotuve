@@ -59,8 +59,9 @@ class FrontController extends Controller
         $cart->remove();
         return redirect()->back();
     } 
-    public function login_register(Request $request){
-        return view('front.login_register');
+    public function login_register(Request $request,CartService $cart){
+        $products = Product::all();
+        return view('front.login_register',array_merge(compact('products'),$cart->getCart()));
     }
 }
 

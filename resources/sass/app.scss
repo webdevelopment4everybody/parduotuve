@@ -441,4 +441,66 @@ background-size:cover;
 .swiper-pagination-bullet{
     background-color:#fff !important;
 }
+// LOGIN/REGISTER
 
+// .login-form-container{
+    
+// }
+// element.style {
+// }
+.login-form-container {
+    background: transparent none repeat scroll 0 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    padding: 80px;
+    text-align: left;
+}
+input[type=text],
+input[type=password]{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #eaeaea;
+    color: #333;
+    font-size: 14px;
+    height: 50px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+    text-transform: capitalize;
+}
+// input[type=checkbox]{
+
+
+// }
+.remember-me label{
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 10px;
+}
+.remember-me a{
+    color: #454545;
+    float: right;
+    font-size: 15px;
+
+}
+.button-box button{
+    border-radius: 50px;
+    background-color: #d8d8d8;
+    border: medium none;
+    color: #000101;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+
+
+@media(max-width: 990px){
+    .logo{
+        margin-right: 50px;
+    }
+    .shop-cart{
+        margin-right: 10px;
+    }
+}

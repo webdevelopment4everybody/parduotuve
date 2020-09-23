@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin/products'], function(){
  Route::get('/', 'FrontController@home')->name('front.home');
  Route::post('add', 'FrontController@add')->name('front.add');
  Route::post('remove', 'FrontController@remove')->name('front.remove');
+ Route::get('login_register', 'FrontController@login_register')->name('front.login_register'); 
 
  Route::post('add-js', 'FrontController@addJs')->name('front.add-js');
  Route::post('buy', 'FrontController@buy')->name('buy');
@@ -43,5 +44,3 @@ Route::group(['prefix' => 'admin/products'], function(){
  Route::get('paysera/cancel', 'FrontController@payseraCancel')->name('paysera.cancel');
  
  Route::post('paysera/callback', 'FrontController@payseraCallback')->name('paysera.callback');
-
- Route::get('login_register', 'FrontController@login_register')->name('front.login_register'); 
