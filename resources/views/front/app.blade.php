@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-fixed-top">
             <div class="container">
-                <img class="logo" src="{{url('/assets/images/logo/logo.png')}}" alt="logo">
+               <a href="./"><img class="logo" src="{{url('/assets/images/logo/logo.png')}}" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,16 +40,16 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto kek">
-                        <a class = "nav-link shop-cart" href="">@include('front.cart-svg')
-                            <div id="cart-count">
-                            @include('front.mini-cart')
-                            </div>
-                        </a>
-                        <a class = "nav-link user" href="login_register">@include('front.user-svg')
-                        </a>
-                    </ul>
                 </div>
+                        <ul class="navbar-nav ml-auto kek">
+                            <a class = "nav-link shop-cart" href="">@include('front.cart-svg')
+                                <div id="cart-count">
+                                @include('front.mini-cart')
+                                </div>
+                            </a>
+                            <a class = "nav-link user" href="login_register">@include('front.user-svg')
+                            </a>
+                        </ul>
             </div>
         </nav>
 

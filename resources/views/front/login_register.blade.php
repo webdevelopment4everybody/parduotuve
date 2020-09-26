@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <h2>Login|Register</h2>
             <div class="login-form-container">
-               <form action=""{{route('front.login_register')}}" method="post">
+               <form action="{{route('front.login_register')}}" method="post">
                    <input type="text" name="" id="" placeholder="username">
                    <input type="password" name="" id="" placeholder="password">
                    <div class="button-box">
