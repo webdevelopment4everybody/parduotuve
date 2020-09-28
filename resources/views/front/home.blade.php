@@ -97,23 +97,24 @@
             </div>
         @endforeach
     </div>
-        <form class="buy-form" action="{{route('buy')}}" method="POST">
+        {{-- <form class="buy-form" action="{{route('buy')}}" method="POST">
             @csrf
             Name:<input type="text" name="name" value=""><br><br>
             Email:<input type="text" name="email" value="" ><br><br>
             Phone:<input type="text" name="phone" value="" ><br><br>
             <button class="add-button " type="submit">BUY</button>
-        </form>
+        </form> --}}
 </section>
-    <div class="container">
+<section class="footer">
+    <div class="container footer">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-12">
                 <div class="footer-container">
                     <div class="footer-top">
                         <div class="socials col-lg-3">
                             <a href="./"><img class="logo" src="{{url('/assets/images/logo/logo.png')}}" alt="logo"></a>
                             <p class="text">Lorem ipsum dolor sit amet, co adipisi elit, sed eiusmod tempor incididunt ut labore et dolore</p>
-                            <div class="socials">
+                            <div class="socials-icons">
                                 <a href="./"><img src="{{url('/assets/images/svg/twitter.svg')}}" alt="twitter"></a>
                                 <a href="./"><img src="{{url('/assets/images/svg/ig.svg')}}" alt="instagram"></a>
                                 <a href="./"><img src="{{url('/assets/images/svg/linkedin.svg')}}" alt="linkedin"></a>
@@ -138,7 +139,7 @@
                         <div class="subscribe col-lg-3">
                             <p>Subscribe to our newsletter and get 10% off your first purchase..</p>
                             <form action="" method="post">
-                                <input type="email" value="email" name="email" placeholder="Your email address" required>
+                                <input type="email" name="email" placeholder="Your email address" required>
                                 <input type="submit" value="send" name="subscribe">
                             </form>
                             <div class="payment-icons">
@@ -153,5 +154,6 @@
             </div>      
         </div>
     </div>
+</section>
 @endsection
 
