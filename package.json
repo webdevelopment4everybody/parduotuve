@@ -24,7 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "swiper": "^6.1.1",
+        "swiper": "^6.5.1",
         "node-forge": ">=0.10.0"
     }
 }
