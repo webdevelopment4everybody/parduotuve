@@ -25,6 +25,6 @@
     },
     "dependencies": {
         "swiper": "^6.1.1",
-        "node-forge": ">=0.10.0"
+        "node-forge": ">=1.3.0"
     }
 }
